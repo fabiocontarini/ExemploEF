@@ -1,0 +1,32 @@
+﻿@model ExemploEF.Models.Cliente
+
+@{
+    ViewData["Title"] = "Excluir Cliente";
+}
+
+<div class="container mt-4">
+    <h1 class="text-danger mb-4">Excluir</h1>
+    <h3 class="mb-4">Tem certeza de que deseja excluir este cliente?</h3>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title text-warning">Detalhes do Cliente</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Nome</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3">Nascimento</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Nascimento)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" class="mt-4">
+        <input type="hidden" asp-for="ClienteID" />
+        <div class="d-flex align-items-center">
+            <button type="submit" class="btn btn-danger me-2">Excluir</button>
+            <a asp-action="Index" class="btn btn-secondary">Voltar para a Lista</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+﻿@model ExemploEF.Models.Cliente
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5 p-4" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 0 15px #ffd700;">
+    <h1 class="mb-4" style="color: #000000; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;">Criar Cliente</h1>
+
+    <h4 style="color: #000000;">Dados do Cliente</h4>
+    <hr style="border: 1px solid #ffd700;" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Nome" class="form-label" style="color: #000000; font-weight: bold;">Nome</label>
+                    <input asp-for="Nome" class="form-control" style="border: 1px solid #ffd700; box-shadow: 0 0 5px #ffd700;" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Nascimento" class="form-label" style="color: #000000; font-weight: bold;">Data de Nascimento</label>
+                    <input asp-for="Nascimento" type="date" class="form-control" style="border: 1px solid #ffd700; box-shadow: 0 0 5px #ffd700;" />
+                    <span asp-validation-for="Nascimento" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Criar" class="btn btn-lg" style="color: #ffffff; background-color: #ffd700; border: none; text-shadow: 0 0 10px #ffd700;" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-action="Index" class="btn" style="color: #ffffff; background-color: #007bff; text-shadow: 0 0 10px #007bff; border: none;">
+            Voltar à Lista
+        </a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

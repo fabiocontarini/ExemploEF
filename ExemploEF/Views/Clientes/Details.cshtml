@@ -1,0 +1,36 @@
+﻿@model ExemploEF.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<div class="container mt-5 p-4" style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 0 15px #ffd700;">
+    <h1 class="mb-4" style="color: #000; text-shadow: 0 0 10px #ffd700;">Detalhes do Cliente</h1>
+
+    <div class="card border-warning" style="border-radius: 10px; border: 2px solid #ffd700;">
+        <div class="card-body" style="background-color: #fffbea;">
+            <h4 class="card-title" style="color: #ffd700; text-shadow: 0 0 10px #ffd700;">Cliente</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3" style="color: #000; font-weight: bold;">Nome</dt>
+                <dd class="col-sm-9" style="color: #000;">@Html.DisplayFor(model => model.Nome)</dd>
+
+                <dt class="col-sm-3" style="color: #000; font-weight: bold;">Nascimento</dt>
+                <dd class="col-sm-9" style="color: #000;">@Html.DisplayFor(model => model.Nascimento)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-4 d-flex justify-content-start">
+        <a asp-action="Edit" asp-route-id="@Model?.ClienteID"
+           class="btn btn-lg me-2"
+           style="color: #ffffff; background-color: #ffd700; border: none; text-shadow: 0 0 10px #ffd700;">
+            Editar
+        </a>
+        <a asp-action="Index"
+           class="btn btn-lg"
+           style="color: #ffffff; background-color: #6c757d; border: none; text-shadow: 0 0 10px #6c757d;">
+            Voltar para a Lista
+        </a>
+    </div>
+</div>

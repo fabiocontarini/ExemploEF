@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ExemploEF.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-4" style="background-color: #ffffff; padding: 30px; border-radius: 15px; box-shadow: 0 0 10px #ffd700;">
+    <h1 class="mb-4" style="color: #000000; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;">Lista de Clientes</h1>
+
+    <p>
+        <a asp-action="Create" class="btn" style="color: #ffffff; background-color: #ffd700; border: none; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;">
+            Criar novo Usuário
+        </a>
+    </p>
+
+    <table class="table table-bordered" style="background-color: #ffffff; box-shadow: 0 0 10px #ffd700;">
+        <thead style="background-color: #000000; color: #ffffff; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nascimento)
+                </th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nascimento)
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Edit" asp-route-id="@item.ClienteID" class="btn btn-sm"
+                           style="color: #ffffff; background-color: #ffd700; border: none; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700;">
+                            Editar
+                        </a>
+                        <a asp-action="Details" asp-route-id="@item.ClienteID" class="btn btn-sm"
+                           style="color: #ffffff; background-color: #007bff; border: none; text-shadow: 0 0 10px #007bff, 0 0 20px #007bff;">
+                            Detalhes
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.ClienteID" class="btn btn-sm"
+                           style="color: #ffffff; background-color: #dc3545; border: none; text-shadow: 0 0 10px #dc3545, 0 0 20px #dc3545;">
+                            Deletar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
